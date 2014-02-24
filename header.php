@@ -54,8 +54,6 @@
 
               <section class="top-bar-section" >
                   <ul class="left">
-                      <li class="divider"></li>
-                      <li><a href="<?php echo get_bloginfo('wpurl') ?>">Home</a></li>
                     <?php wp_nav_menu( array('theme_location'  => 'topbar_left', 'items_wrap' => '<li class="divider"></li>%3$s', 'container' => false, 'walker' => new Topbar_Nav_Menu() )); ?>
                   </ul>
                   <!-- Right Nav Section -->
