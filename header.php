@@ -45,7 +45,7 @@
               <ul class="title-area">
                 <!-- Title Area -->
                 <li class="name">
-                  <h1><a href="http://www.gov.ph"><img src="<?php echo get_bloginfo('wpurl') ?>/wp-content/themes/gwt_wp_42/images/seal-govph.png"></a></h1>
+                  <h1><a href="http://www.gov.ph"><img src="<?php echo get_bloginfo('wpurl') ?>/wp-content/themes/gwt-wordpress-master/images/seal-govph.png"></a></h1>
                 </li>
                 <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
                 <li class="toggle-topbar"><a href="#"></a></li>
@@ -54,6 +54,8 @@
 
               <section class="top-bar-section" >
                   <ul class="left">
+                      <li class="divider"></li>
+                      <li><a href="">Home</a></li>
                     <?php wp_nav_menu( array('theme_location'  => 'topbar_left', 'items_wrap' => '<li class="divider"></li>%3$s', 'container' => false, 'walker' => new Topbar_Nav_Menu() )); ?>
                   </ul>
                   <!-- Right Nav Section -->
