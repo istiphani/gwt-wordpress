@@ -55,13 +55,13 @@ function gwt_wp_content_nav( $nav_id ) {
 }
 endif; // gwt_wp_content_nav
 
-if ( ! function_exists( 'gwt_wp_comment' ) ) :
+/* if ( ! function_exists( 'gwt_wp_comment' ) ) : */
 /**
  * Template for comments and pingbacks.
  *
  * Used as a callback by wp_list_comments() for displaying the comments.
  */
-function gwt_wp_comment( $comment, $args, $depth ) {
+/* function gwt_wp_comment( $comment, $args, $depth ) {
 	$GLOBALS['comment'] = $comment;
 
 	if ( 'pingback' == $comment->comment_type || 'trackback' == $comment->comment_type ) : ?>
@@ -107,7 +107,7 @@ function gwt_wp_comment( $comment, $args, $depth ) {
 	<?php
 	endif;
 }
-endif; // ends check for gwt_wp_comment()
+endif; // ends check for gwt_wp_comment() */
 
 if ( ! function_exists( 'gwt_wp_the_attached_image' ) ) :
 /**
