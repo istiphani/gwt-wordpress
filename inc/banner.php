@@ -90,8 +90,8 @@
                 <header>
                 <?php while ( have_posts() ) : the_post(); ?>
                   <h1 class="entry-title"><?php the_title(); ?></h1>
-                  <div class="entry-meta">
-                    <?php gwt_wp_posted_on(); ?>
+                  <!--div class="entry-meta">
+                    <!--?php gwt_wp_posted_on(); ?>
                   </div><!-- .entry-meta -->
 
                 <?php endwhile; // end of the loop. ?>
