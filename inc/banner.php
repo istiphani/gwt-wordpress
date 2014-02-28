@@ -2,28 +2,7 @@
     <?php govph_displayoptions( 'govph_slider_start' ); ?>
 
         <?php if (is_home()): ?>
-            <div class="large-9 columns">
-                <div class="orbit-container">
-                    <ul> 
-                        <li>
-                            <img src="http://localhost:8888/test/ao39/wp-content/uploads/2014/02/uwcp-catanduanes.jpg
-" alt="slide 1" /> <div class="orbit-caption"> Caption One. </div> </li> <li> <img src="../assets/img/examples/andromeda-orbit.jpg" alt="slide 2" /> <div class="orbit-caption"> Caption Two. </div> </li> <li> <img src="../assets/img/examples/launch-orbit.jpg" alt="slide 3" /> <div class="orbit-caption"> Caption Three. </div> </li> </ul>
-                    
-                    
-                    
-                    
-                    
-                    
-                    
-                </div>
-            </div>
-            <div class="large-3 columns">
-                <!--?php $post = get_post( 735 );
-                    echo $post->post_content; ?-->
-                <a href="http://ao39.i.gov.ph/government-web-hosting-service/monitoring/"><img src="<?php echo get_bloginfo('wpurl') ?>/wp-content/themes/gwt-wordpress-igov/images/imagelink-framwork.jpg" class="margin-bott-sm">
-                <a href="http://ao39.i.gov.ph/government-web-hosting-service/monitoring/"><img src="<?php echo get_bloginfo('wpurl') ?>/wp-content/themes/gwt-wordpress-igov/images/imagelink-gwhsmonitoring.png">
-                <p><small>See which websites have migrated to iGov</small></a></p>
-            </div>
+          <?php echo efs_get_slider(); ?>
         <?php else: ?>
           <?php if (is_404()): ?>
             <div class="row">
@@ -111,8 +90,8 @@
                 <header>
                 <?php while ( have_posts() ) : the_post(); ?>
                   <h1 class="entry-title"><?php the_title(); ?></h1>
-                  <!--div class="entry-meta">
-                    <!--?php gwt_wp_posted_on(); ?>
+                  <div class="entry-meta">
+                    <?php gwt_wp_posted_on(); ?>
                   </div><!-- .entry-meta -->
 
                 <?php endwhile; // end of the loop. ?>
