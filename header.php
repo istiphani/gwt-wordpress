@@ -45,7 +45,7 @@
               <ul class="title-area">
                 <!-- Title Area -->
                 <li class="name">
-                  <h1><a href="http://www.gov.ph"><img src="<?php echo get_bloginfo('wpurl') ?>/wp-content/themes/gwt-wordpress-igov/images/seal-govph.png"></a></h1>
+                  <h1><a href="http://i.gov.ph"><img src="<?php echo get_bloginfo('wpurl') ?>/wp-content/themes/gwt-wordpress-igov/images/igovicon.png"></a></h1>
                 </li>
                 <!-- Remove the class "menu-icon" to get rid of menu icon. Take out "Menu" to just have icon alone -->
                 <li class="toggle-topbar"><a href="#"></a></li>
