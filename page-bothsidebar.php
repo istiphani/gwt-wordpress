@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Fullwidth
+ * Template Name: Full Width
  * @package gwt_wp
  */
 
@@ -10,9 +10,8 @@ include_once('inc/banner.php');
 
   <div id="container-main" class="container-main" role="document">
     <div id="main" class="row">
-
-    <?php get_sidebar('left'); ?>
-    <div id="content" class="large-6 columns" role="main">
+		
+    <div id="content" class="large-12 columns" role="main">
       <?php while ( have_posts() ) : the_post(); ?>
 
         <?php get_template_part( 'content', 'page' ); ?>
@@ -25,7 +24,6 @@ include_once('inc/banner.php');
 
       <?php endwhile; // end of the loop. ?>
     </div><!-- #content -->
-    <?php get_sidebar('right'); ?>
     </div><!-- #main -->
   </div><!-- #primary -->
 
