@@ -1,6 +1,7 @@
-March 18 changes
+Read me
 ===
 
+03/18/2014 changes
 * Full widtth template functions
 * Text decoration for standard footer links
 * Slider get functions
