@@ -32,6 +32,7 @@
   }
   div.container-banner {
     <?php govph_displayoptions( 'govph_slidercolor' ); ?>
+    <?php govph_displayoptions( 'govph_sliderimage' ); ?>
   }
 </style>
 </head>
