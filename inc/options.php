@@ -105,7 +105,7 @@ class GOVPH
           custom_uploader.open();
 
       });
-      $('form').find('input#header_slider_background_button').on('click', function(e){
+      $('form').find('input#slider_image_background_button').on('click', function(e){
         e.preventDefault();
 
         var $this = $(this),
