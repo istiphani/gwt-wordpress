@@ -105,6 +105,37 @@ class GOVPH
           custom_uploader.open();
 
       });
+      $('form').find('input#slider_image_background_button').on('click', function(e){
+        e.preventDefault();
+
+        var $this = $(this),
+          prevInput = $(this).prev();
+
+        console.log(prevInput);
+
+          if (custom_uploader) {
+              custom_uploader.open();
+              return;
+          }
+
+
+          custom_uploader = wp.media.frames.file_frame = wp.media({
+              title: 'Choose Image',
+              button: {
+                  text: 'Choose Image'
+              },
+              multiple: false
+          });
+
+          custom_uploader.on('select', function() {
+              attachment = custom_uploader.state().get('selection').first().toJSON();
+              prevInput.val(attachment.url);
+              console.log(prevInput.val());
+          });
+
+          custom_uploader.open();
+
+      });
   });
   </script>
   <?php
@@ -120,6 +151,7 @@ class GOVPH
     add_settings_field('govph_headercolor', 'Header Background Color', array($this, 'govph_header_color_setting'), __FILE__, 'govph_main_section');
     add_settings_field('govph_headerimage', 'Header Background Image', array($this, 'govph_header_image_setting'), __FILE__, 'govph_main_section');
     add_settings_field('govph_slidercolor', 'Slider Background Color', array($this, 'govph_slider_color_setting'), __FILE__, 'govph_main_section');
+    add_settings_field('govph_sliderimage', 'Slider Background Image', array($this, 'govph_slider_image_setting'), __FILE__, 'govph_main_section');
     //add_settings_field('govph_slider_fullwidth', 'Slider Full Width', array($this, 'govph_slider_fullwidth'), __FILE__, 'govph_main_section');
     add_settings_field('govph_anchorcolor', 'Anchor Color Settings', array($this, 'govph_anchor_color_setting'), __FILE__, 'govph_main_section');
     add_settings_field('govph_sidebar_position', 'Sidebar Settings', array($this, 'govph_sidebar_position'), __FILE__, 'govph_main_section');
@@ -215,6 +247,20 @@ class GOVPH
     <input name="govph_options[govph_slidercolor]" type="text" value="<?php echo $this->options['govph_slidercolor']; ?>" class="my-color-field" data-default-color="#1f3a70" />
   <?php
   }
+  
+    public function govph_slider_image_setting()
+  {
+    ?>
+    <label for="slider_image_background">
+        <input id="slider_image_background" type="text" size="36" name="govph_options[govph_sliderimage]" value="<?php echo $this->options['govph_sliderimage']; ?>" />
+        <input id="slider_image_background_button" class="button" type="button" value="Upload Image" />
+        <br /><p class="description">Enter a URL or upload an image for header background</p>
+    </label>
+    <?php
+      if (!empty($this->options['govph_sliderimage'])) {
+        echo '<br/><img src="'.$this->options['govph_sliderimage'].'" height="200px" alt="" style="background: #ddd; padding: 10px;">';
+      }
+  }
 
   public function govph_slider_fullwidth()
   {
@@ -277,6 +323,7 @@ function govph_displayoptions( $options ){
   $headerBg = (!empty($option['govph_headercolor']) ? 'background-color:'.$option['govph_headercolor'].';' : '');
   $headerImg = (!empty($option['govph_headerimage']) ? 'background-image:url("'.$option['govph_headerimage'].'");' : '');
   $sliderBg = (!empty($option['govph_slidercolor']) ? 'background-color:'.$option['govph_slidercolor'].';' : '');
+  $sliderImg = (!empty($option['govph_sliderimage']) ? 'background-image:url("'.$option['govph_sliderimage'].'");background-size:cover;' : '');
   $anchorColor = (!empty($option['govph_anchorcolor']) ? 'color:'.$option['govph_anchorcolor'].' !important;' : '');
 
   // print_r($options[govph_headercolor]);
@@ -314,6 +361,9 @@ function govph_displayoptions( $options ){
           break;
       case 'govph_slidercolor':
           echo $sliderBg;
+          break;
+      case 'govph_sliderimage':
+          echo $sliderImg;
           break;
       case 'govph_anchorcolor':
           echo $anchorColor;
