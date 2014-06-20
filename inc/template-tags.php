@@ -161,12 +161,13 @@ function gwt_wp_the_attached_image() {
 }
 endif;
 
-if ( ! function_exists( 'gwt_wp_posted_on' ) ) :
+if ( ! function_exists( 'gwt_wp_categorized_blog_on' ) ) :
 /**
  * Prints HTML with meta information for the current post-date/time and author.
  */
 function gwt_wp_posted_on() {
-	$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
+	$time_string = '<time class="entry-date published" datetime="%1$s"></time>';
+	/* $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>'; */
 	if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) )
 		$time_string .= '<time class="updated" datetime="%3$s">%4$s</time>';
 
@@ -177,7 +178,8 @@ function gwt_wp_posted_on() {
 		esc_html( get_the_modified_date() )
 	);
 
-	printf( __( '<span class="posted-on">Posted on %1$s</span><span class="byline"> by %2$s</span>', 'gwt_wp' ),
+	printf( __( '<span class="posted-on">Posted on %1$s</span><span class="byline"></span>', 'gwt_wp' ),
+	/* printf( __( '<span class="posted-on">Posted on %1$s</span><span class="byline"> by %2$s</span>', 'gwt_wp' ), */
 		sprintf( '<a href="%1$s" title="%2$s" rel="bookmark">%3$s</a>',
 			esc_url( get_permalink() ),
 			esc_attr( get_the_time() ),
