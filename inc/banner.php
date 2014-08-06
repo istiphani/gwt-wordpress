@@ -1,5 +1,4 @@
 
-?>
 <?php
 
 if (is_home()){
