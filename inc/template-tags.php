@@ -31,7 +31,7 @@ function gwt_wp_content_nav( $nav_id ) {
 
 	?>
 	<nav role="navigation" id="<?php echo esc_attr( $nav_id ); ?>" class="<?php echo $nav_class; ?>">
-		<h1 class="screen-reader-text"><?php _e( 'Post navigation', 'gwt_wp' ); ?></h1>
+		<h5 class="screen-reader-text"><?php _e( 'Post navigation', 'gwt_wp' ); ?></h5>
 
 	<?php if ( is_single() ) : // navigation links for single posts ?>
 
@@ -177,7 +177,7 @@ function gwt_wp_posted_on() {
 		esc_html( get_the_modified_date() )
 	);
 
-	printf( __( '<span class="posted-on">Posted on %1$s</span><span class="byline"> by %2$s</span>', 'gwt_wp' ),
+	printf( __( '<span class="posted-on">Posted on %1$s</span>', 'gwt_wp' ),
 		sprintf( '<a href="%1$s" title="%2$s" rel="bookmark">%3$s</a>',
 			esc_url( get_permalink() ),
 			esc_attr( get_the_time() ),

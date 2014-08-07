@@ -5,8 +5,8 @@
           <?php echo efs_get_slider(); ?>
         <?php else: ?>
           <?php if (is_404()): ?>
-            <div class="row">
-              <div class="nine columns">
+            <div class="row container-main">
+              <div class="large-9 columns">
                 <header>
                   <h1 class="page-title"><?php _e( 'Oops! That page can&rsquo;t be found.', 'gwt_wp' ); ?></h1>
                 </header>
@@ -14,7 +14,7 @@
             </div>
           <?php elseif (is_search()): ?>
             <div class="row">
-              <div class="nine columns">
+              <div class="large-9 columns container-main">
                 <header>
                   <h1 class="page-title"><?php printf( __( 'Search Results for: %s', 'gwt_wp' ), '<span>' . get_search_query() . '</span>' ); ?></h1>
                 </header>
@@ -22,7 +22,7 @@
             </div>
           <?php elseif (is_archive()): ?>
             <div class="row">
-              <div class="nine columns">
+              <div class="large-9 columns container-main">
                 <header>
                   <h1 class="page-title">
                     <?php
@@ -86,7 +86,7 @@
             </div>
           <?php else: ?>
             <div class="row">
-              <div class="nine columns">
+              <div class="large-9 columns container-main">
                 <header>
                 <?php while ( have_posts() ) : the_post(); ?>
                   <h1 class="entry-title"><?php the_title(); ?></h1>

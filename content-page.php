@@ -15,6 +15,9 @@
 				'after'  => '</div>',
 			) );
 		?>
-	</div><!-- .entry-content -->
-	<?php edit_post_link( __( 'Edit', 'gwt_wp' ), '<footer class="entry-meta"><span class="edit-link">', '</span></footer>' ); ?>
-</article><!-- #post-## -->
+	</div>
+	
+	<!-- edit post link (commented out) -->
+	<?php // edit_post_link( __( 'Edit', 'gwt_wp' ), '<footer class="entry-meta"><span class="edit-link">', '</span></footer>' ); ?>
+	
+</article>

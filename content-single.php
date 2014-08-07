@@ -5,6 +5,8 @@
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
+	
+	<!-- entry-content -->
 	<div class="entry-content">
 		<?php the_content(); ?>
 		<?php
@@ -13,43 +15,48 @@
 				'after'  => '</div>',
 			) );
 		?>
-	</div><!-- .entry-content -->
-
+	</div>
+	
+	<!-- footer entry-meta (commented out) -->
 	<footer class="entry-meta">
+		
 		<?php
 			/* translators: used between list items, there is a space after the comma */
-			$category_list = get_the_category_list( __( ', ', 'gwt_wp' ) );
+			//$category_list = get_the_category_list( __( ', ', 'gwt_wp' ) );
 
 			/* translators: used between list items, there is a space after the comma */
-			$tag_list = get_the_tag_list( '', __( ', ', 'gwt_wp' ) );
+			//$tag_list = get_the_tag_list( '', __( ', ', 'gwt_wp' ) );
 
-			if ( ! gwt_wp_categorized_blog() ) {
+			//if ( ! gwt_wp_categorized_blog() ) {
 				// This blog only has 1 category so we just need to worry about tags in the meta text
-				if ( '' != $tag_list ) {
-					$meta_text = __( 'This entry was tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'gwt_wp' );
-				} else {
-					$meta_text = __( 'Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'gwt_wp' );
-				}
+				//if ( '' != $tag_list ) {
+					//$meta_text = __( 'This entry was tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'gwt_wp' );
+					//} else {
+					//$meta_text = __( 'Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'gwt_wp' );
+					//}
 
-			} else {
+				//} else {
 				// But this blog has loads of categories so we should probably display them here
-				if ( '' != $tag_list ) {
-					$meta_text = __( 'This entry was posted in %1$s and tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'gwt_wp' );
-				} else {
-					$meta_text = __( 'This entry was posted in %1$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'gwt_wp' );
-				}
+				//if ( '' != $tag_list ) {
+					//$meta_text = __( 'This entry was posted in %1$s and tagged %2$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'gwt_wp' );
+					//} else {
+					//$meta_text = __( 'This entry was posted in %1$s. Bookmark the <a href="%3$s" title="Permalink to %4$s" rel="bookmark">permalink</a>.', 'gwt_wp' );
+					//}
 
-			} // end check for categories on this blog
-
-			printf(
-				$meta_text,
-				$category_list,
-				$tag_list,
-				get_permalink(),
-				the_title_attribute( 'echo=0' )
-			);
+			//} // end check for categories on this blog
+		
+			//printf(
+			//	$meta_text,
+			//	$category_list,
+			//	$tag_list,
+			//	get_permalink(),
+			//	the_title_attribute( 'echo=0' )
+			//);
 		?>
+		
+		<!-- edit post link (commented out) -->
+		<?php edit_post_link( __( 'Edit', 'gwt_wp' ), '<span class="edit-link">', '</span>' ); ?>	
+		
+	</footer>
 
-		<?php edit_post_link( __( 'Edit', 'gwt_wp' ), '<span class="edit-link">', '</span>' ); ?>
-	</footer><!-- .entry-meta -->
-</article><!-- #post-## -->
+</article>
