@@ -1,7 +1,7 @@
 Read me
 ===
 
-***For bugs and error, Please email Us at gwtsupport@i.gov.ph***
+***For bugs and error, Please email us at gwtsupport@i.gov.ph***
 
 03/18/2014 changes
 * Full widtth template functions
@@ -14,6 +14,7 @@ Use this as a a guide for creating your banner slider images:
 * Linked article should be indicated in the content field
 
 ***Updates by: Voltz Jeturian voltz.jeturian@icto.dost.gov.ph***
+
 08/07/2014 changelogs:
 * Revamped new design.
 * Added new widget locations
