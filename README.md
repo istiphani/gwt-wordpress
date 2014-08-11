@@ -1,7 +1,7 @@
 Read me
 ===
 
-***For bugs and errors, Please email us at gwtsupport@i.gov.ph***
+***For bugs, error, and suggestions, please email us at gwtsupport@i.gov.ph with the subject "WordPress GWT 5.0b***
 
 03/18/2014 changes
 * Full widtth template functions
