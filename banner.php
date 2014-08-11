@@ -1,60 +1,8 @@
-<?php if (is_home()){
-
-  $banner_class = ' large-12';
-  $banner_2_class = '';
-  $banner_3_class = '';
-  // if both banner are available
-  if(is_active_sidebar('banner-section-1') && is_active_sidebar('banner-section-2')){
-    $banner_class = ' large-6';
-    $banner_2_class = ' large-3';
-    $banner_3_class = ' large-3';
-  }
-  elseif(is_active_sidebar('banner-section-1') && !is_active_sidebar('banner-section-2')){
-    $banner_class = ' large-8';
-    $banner_2_class = ' large-4';
-    //$banner_3_class = '';
-  }
-  elseif(!is_active_sidebar('banner-section-1') && is_active_sidebar('banner-section-2')){
-    $banner_class = ' large-9';
-    //$banner_2_class = '';
-    $banner_3_class = ' large-3';
-  }
-  $banner_class .= ' show-for-medium-up';
-
-} ?>
-
 <div class="container-banner">
     <?php govph_displayoptions( 'govph_slider_start' ); ?>
 
         <?php if (is_home()): ?>
-            <?php if(is_active_sidebar('banner-section-1')): ?>
-              <div class="row collapse">
-            <?php endif; ?>
-
-            <?php if($banner_slider = efs_get_slider()): ?>
-              <div class="<?php echo $banner_class ?> columns">
-              <?php echo $banner_slider ?>
-              </div>
-            <?php endif; ?>
-
-            <?php if(is_active_sidebar('banner-section-1')): ?>
-              <div class="<?php echo $banner_2_class ?> columns">
-              <?php do_action( 'before_sidebar' ); ?>
-              <?php dynamic_sidebar( 'banner-section-1' ) ?>
-              </div>
-            <?php endif; ?>
-
-            <?php if(is_active_sidebar('banner-section-2')): ?>
-              <div class="<?php echo $banner_3_class ?> columns">
-              <?php do_action( 'before_sidebar' ); ?>
-              <?php dynamic_sidebar( 'banner-section-2' ) ?>
-              </div>
-            <?php endif; ?>
-			
-            <?php if(is_active_sidebar('banner-section-1') || is_active_sidebar('banner-section-2')): ?>
-              </div><!-- closing row -->
-            <?php endif; ?>
-			
+          <?php echo efs_get_slider(); ?>
         <?php else: ?>
           <?php if (is_404()): ?>
             <div class="row container-main">

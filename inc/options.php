@@ -145,14 +145,14 @@ class GOVPH
   {
     register_setting('govph_options','govph_options');
     add_settings_section('govph_main_section', '', array($this, 'govph_main_section_cb'), __FILE__);
-    add_settings_field('govph_mainmenu', 'Auxiliary Menu', array($this, 'govph_mainmenu'), __FILE__, 'govph_main_section');
+    add_settings_field('govph_mainmenu', 'Main Menu', array($this, 'govph_mainmenu'), __FILE__, 'govph_main_section');
     add_settings_field('govph_logo_position', 'Logo Position', array($this, 'govph_logo_position_setting'), __FILE__, 'govph_main_section');
     add_settings_field('govph_logo', 'Image Logo', array($this, 'govph_logo_setting'), __FILE__, 'govph_main_section');
     add_settings_field('govph_headercolor', 'Header Background Color', array($this, 'govph_header_color_setting'), __FILE__, 'govph_main_section');
     add_settings_field('govph_headerimage', 'Header Background Image', array($this, 'govph_header_image_setting'), __FILE__, 'govph_main_section');
     add_settings_field('govph_slidercolor', 'Slider Background Color', array($this, 'govph_slider_color_setting'), __FILE__, 'govph_main_section');
     add_settings_field('govph_sliderimage', 'Slider Background Image', array($this, 'govph_slider_image_setting'), __FILE__, 'govph_main_section');
-    //add_settings_field('govph_slider_fullwidth', 'Slider Full Width', array($this, 'govph_slider_fullwidth'), __FILE__, 'govph_main_section');
+    add_settings_field('govph_slider_fullwidth', 'Slider Full Width', array($this, 'govph_slider_fullwidth'), __FILE__, 'govph_main_section');
     add_settings_field('govph_anchorcolor', 'Anchor Color Settings', array($this, 'govph_anchor_color_setting'), __FILE__, 'govph_main_section');
     add_settings_field('govph_sidebar_position', 'Sidebar Settings', array($this, 'govph_sidebar_position'), __FILE__, 'govph_main_section');
 
@@ -331,27 +331,19 @@ function govph_displayoptions( $options ){
       case 'govph_mainmenu':
           if ($option['govph_mainmenu'] === 'true') {
             ?>
-			
-			<div id="main-nav">
-				<nav class="container-topbar">
-					<div class="row">
-						<div class="large-12 columns">
-							<nav class="top-bar" data-topbar>
-					
-								<section class="top-bar-section">
-					
-									<!-- left navigation -->
-					                <ul class="left">
-					                  <?php wp_nav_menu( array('theme_location'  => 'main_nav', 'items_wrap' => '<li class="divider"></li>%3$s', 'container' => false, 'walker' => new Topbar_Nav_Menu() )); ?> 
-					                </ul>
-								
-							</section>
-							</nav>
-						</div>
-					</div>
-				</nav>
-			</div>
-			
+            <nav id="main-nav" class="container-topbar">
+              <div class="row">
+                  <div class="small-12 large-12 columns toplayer">
+                      <nav class="top-bar nomargin" style="">
+                        <section class="top-bar-section">
+                            <ul>
+                              <?php wp_nav_menu( array('theme_location'  => 'main_nav', 'items_wrap' => '<li class="divider"></li>%3$s', 'container' => false, 'walker' => new Topbar_Nav_Menu() )); ?>
+                            </ul>
+                        </section>
+                      </nav>
+                  </div>
+              </div>
+          </nav>
           <?php
           }
           break;
@@ -404,7 +396,7 @@ function govph_displayoptions( $options ){
           break;
       case 'govph_slider_start':
           if ($option['govph_slider_fullwidth'] != 'true') {
-            echo '<div class="row"><div class="large-12 columns govph-flexslider">';
+            echo '<div class="row"><div class="large-12 columns">';
           }
           break;
       case 'govph_slider_end':

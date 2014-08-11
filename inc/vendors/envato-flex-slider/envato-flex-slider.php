@@ -62,16 +62,18 @@ add_action('wp_head', 'efs_script');
 
 function efs_get_slider(){
 
-	$slider= '<section class="slider">
-	  <div class="flexslider carousel">
-	  <ul class="slides">';
-
 	$efs_query= "post_type=slider-image";
 	query_posts($efs_query);
 	
 	global $post_id;
 	
-	if (have_posts()) : while (have_posts()) : the_post(); 
+	if (have_posts()) : 
+		
+		$slider= '<section class="slider">
+		  <div class="flexslider carousel">
+		  <ul class="slides">';
+		  
+		while (have_posts()) : the_post(); 
 		$img= get_the_post_thumbnail($post_id, 'full');
 		$slide_link= get_the_content($post_id);
 		$caption = get_the_title();

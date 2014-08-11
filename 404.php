@@ -8,7 +8,7 @@
 get_header();
 ?>
 
-<div class="row container-main" >
+<div id="main" class="row container-main" >
 	
 	<div class="large-2 medium-2 columns"><p></p></div>
 	

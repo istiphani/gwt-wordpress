@@ -3,7 +3,8 @@ Theme Name:         Government Web Template for WordPress
 Theme URI:          http://i.gov.ph
 Description:        Custom WordPress theme based on the draft Unified Web Content Policy prepared by the PCDSPO, DOST-ASTI, and DOST-ICTO. Theme is built on HTML5 responsive WordPress framework based on ZURB's Foundation.
 Version:            5.0a
-Contributors:       Jonathan Cuevas, Randy Pallones, John Mark Perocho, Stephanie Azarias, Voltaire Jeturian
+Author:       		Jonathan Cuevas, Randy Pallones, John Mark Perocho, Stephanie Azarias, Voltaire Jeturian
+Author URI: 		http://i.gov.ph
 License:            MIT License
 License URI:        http://www.opensource.org/licenses/mit-license.php
 */
@@ -58,6 +59,8 @@ h1, h2, h3, h4, h5, h6 {font-family: 'Roboto', sans-serif; font-weight: bold; te
 	
 	.container-masthead {border-bottom: 1px solid #f2f2f2;}
 	.entry-header {padding-bottom: 1.125rem;}
+	.flexslider {margin: 20px 0 40px 0;}
+	p.flex-caption {bottom: -20px;}
 	
 	/* content */
 	h4.entry-title {margin-bottom: 3px}
@@ -74,10 +77,10 @@ h1, h2, h3, h4, h5, h6 {font-family: 'Roboto', sans-serif; font-weight: bold; te
 	span.edit-link {display: none;}
 	
 	/* sidebar */
-	h1.widget-title {font-size: 1.125rem;}
 	#sidebar .widget {border-style: solid; border-width: 1px; padding: 1.25rem; background: #F2F2F2; margin-bottom: 1.25rem; border-color: #D8D8D8;}
 		
-	
+	/* sticky footer */
+	.container-main {min-height: 100%;}
 
 
 

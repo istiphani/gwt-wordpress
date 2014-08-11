@@ -11,35 +11,89 @@
 	</div><!-- #content -->
 </div><!-- #page -->
 
+<?php
+// TODO: dynamic class setup
+$footer_class = ' large-12';
+$footer_class_2 = '';
+$footer_class_3 = '';
+$footer_class_4 = '';
+if(is_active_sidebar('footer-2')){
+  $footer_class = ' large-6';
+  $footer_class_2 = ' large-6';
+  $footer_class_3 = ' large-3';
+  $footer_class_4 = ' large-3';
+  if(is_active_sidebar('footer-3') && is_active_sidebar('footer-4')){
+    $footer_class = ' large-3';
+    $footer_class_2 = ' large-3';
+  }
+  elseif(!is_active_sidebar('footer-3') && is_active_sidebar('footer-4')){
+    $footer_class_2 = ' large-3';
+    $footer_class_3 = '';
+    $footer_class_4 = '';
+    $footer_class_4 = ' large-3';
+  }
+  elseif(is_active_sidebar('footer-3') && !is_active_sidebar('footer-4')){
+    $footer_class_2 = ' large-3';
+    $footer_class_3 = ' large-3';
+    $footer_class_4 = '';
+  }
+  elseif(!is_active_sidebar('footer-3') && !is_active_sidebar('footer-4')){
+    $footer_class_2 = ' large-3';
+    $footer_class_3 = '';
+    $footer_class_4 = '';
+  }
+}
+else{
+  $footer_class = ' large-6';
+  $footer_class_2 = '';
+  $footer_class_3 = ' large-3';
+  $footer_class_4 = ' large-3';
+  if(!is_active_sidebar('footer-3') && is_active_sidebar('footer-4')){
+    $footer_class_3 = ' large-6';
+    $footer_class_4 = '';
+  }
+  elseif(is_active_sidebar('footer-3') && !is_active_sidebar('footer-4')){
+    $footer_class_3 = '';
+    $footer_class_4 = ' large-6';
+  }
+  elseif(!is_active_sidebar('footer-3') && !is_active_sidebar('footer-4')){
+    $footer_class = ' large-12';
+    $footer_class_3 = '';
+    $footer_class_4 = '';
+  }
+}
+?>
+
 <!-- agency footer -->
 <div class="container-footer">
   <div id="supplementary" class="row">
-    <div class="large-6 columns widget-area" role="complementary">
+    <?php if(is_active_sidebar('footer-1')): ?>
+    <div class="columns widget-area<?php echo $footer_class ?>" role="complementary">
       <?php do_action( 'before_sidebar' ); ?>
-      <?php if ( ! dynamic_sidebar( 'footer-1' ) ) : ?>
-        <aside id="meta" class="widget">
-          <h6 class="widget-title"><?php _e( '', 'gwt_wp' ); ?></h6>
-        </aside>
-      <?php endif; // end sidebar widget area ?>
+      <?php dynamic_sidebar( 'footer-1' ) ?>
     </div>
+    <?php endif; // if active footer-1 ?>
 
-    <div class="large-3 columns widget-area" role="complementary">
+    <?php if(is_active_sidebar('footer-2')): ?>
+    <div class="columns widget-area<?php echo $footer_class_2 ?>" role="complementary">
       <?php do_action( 'before_sidebar' ); ?>
-      <?php if ( ! dynamic_sidebar( 'footer-2' ) ) : ?>
-        <aside id="meta" class="widget">
-          <h6 class="widget-title"><?php _e( '', 'gwt_wp' ); ?></h6>
-        </aside>
-      <?php endif; // end sidebar widget area ?>
+      <?php dynamic_sidebar( 'footer-2' ) ?>
     </div>
+    <?php endif; // if active footer-2 ?>
 
-    <div class="large-3 columns widget-area" role="complementary">
+    <?php if(is_active_sidebar('footer-3')): ?>
+    <div class="columns widget-area<?php echo $footer_class_3 ?>" role="complementary">
       <?php do_action( 'before_sidebar' ); ?>
-      <?php if ( ! dynamic_sidebar( 'footer-3' ) ) : ?>
-        <aside id="meta" class="widget">
-          <h6 class="widget-title"><?php _e( '', 'gwt_wp' ); ?></h6>
-        </aside>
-      <?php endif; // end sidebar widget area ?>
+      <?php dynamic_sidebar( 'footer-3' ) ?>
     </div>
+    <?php endif; // if active footer-3 ?>
+
+    <?php if(is_active_sidebar('footer-4')): ?>
+    <div class="columns widget-area<?php echo $footer_class_4 ?>" role="complementary">
+      <?php do_action( 'before_sidebar' ); ?>
+      <?php dynamic_sidebar( 'footer-4' ) ?>
+    </div>
+    <?php endif; // if active footer-4 ?>
   </div>
 </div>
 
@@ -90,16 +144,18 @@
     </div>
 <!-- end standard footer -->
 
-<script>
+<!--script>
 document.write('<script src=' +
 ('__proto__' in {} ? '<?php  echo get_template_directory_uri() . '/js/vendor/zepto'; ?>' : '<?php  echo get_template_directory_uri() . '/js/vendor/jquery'; ?>') +
 '.js><\/script>')
-</script>
+</script-->
 
 <?php wp_footer(); ?>
 
-<script>
-  jQuery(document).foundation();
+<script type="text/javascript">
+(function($) {
+	jQuery(document).foundation();
+})(jQuery);
 </script>
 
 </body>

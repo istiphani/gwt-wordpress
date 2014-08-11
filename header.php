@@ -1,7 +1,9 @@
 <?php
 /**
  * The Header for our theme.
+ *
  * Displays all of the <head> section and everything up till <div id="main">
+ *
  * @package gwt_wp
  */
 ?>
@@ -78,11 +80,49 @@
 	</nav>
 </div>  
 
+<?php
+  // create a dynamic column on ear content
+  $name_slogan_class = ' large-12';
+  $ear_content_class = '';
+  $ear_content_2_class = '';
+  // if both content are available
+  if(is_active_sidebar('ear-content-1') && is_active_sidebar('ear-content-2')){
+    $name_slogan_class = ' large-6';
+    $ear_content_class = ' large-3';
+    $ear_content_2_class = ' large-3';
+  }
+  elseif(is_active_sidebar('ear-content-1') && !is_active_sidebar('ear-content-2')){
+    $name_slogan_class = ' large-9';
+    $ear_content_class = ' large-3';
+    //$ear_content_2_class = '';
+  }
+  elseif(!is_active_sidebar('ear-content-1') && is_active_sidebar('ear-content-2')){
+    $name_slogan_class = ' large-9';
+    //$ear_content_class = '';
+    $ear_content_2_class = ' large-3';
+  }
+?>
+
 <!-- masthead -->
 <div class="container-masthead">
 	<div class="row">
-		<div class="large-12 columns"> 
+		<div class="columns<?php echo $name_slogan_class ?>"> 
 			<h1 class="logo"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" title="<?php echo esc_attr( get_bloginfo( 'name', 'display' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></h1>
 		</div>
+		
+	    <?php if(is_active_sidebar('ear-content-1')): ?>
+			<div class="<?php echo $ear_content_class ?> columns">
+				<?php do_action( 'before_sidebar' ); ?>
+				<?php dynamic_sidebar( 'ear-content-1' ) ?>
+	      	</div>
+	    <?php endif; ?>
+		
+	    <?php if(is_active_sidebar('ear-content-2')): ?>
+	      	<div class="<?php echo $ear_content_2_class ?> columns">
+				<?php do_action( 'before_sidebar' ); ?>
+	      	  	<?php dynamic_sidebar( 'ear-content-2' ) ?>
+	      </div>
+	    <?php endif; ?>
+		
 	</div>
 </div>
