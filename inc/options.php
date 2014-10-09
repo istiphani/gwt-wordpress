@@ -14,7 +14,7 @@ class GOVPH
     $this->register_settings_fields();
   }
 
-  public function add_menu_page()
+  public static function add_menu_page()
   {
     add_theme_page('Theme Options', 'Theme Options', 'administrator', 'govph-options', array('GOVPH', 'govph_options_page'),6);
   }
